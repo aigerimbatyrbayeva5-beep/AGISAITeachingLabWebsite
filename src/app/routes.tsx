@@ -3,7 +3,7 @@ import {
   Link,
   NavLink,
   Outlet,
-  createBrowserRouter,
+  createHashRouter,
   useLocation,
   useNavigate,
   useParams,
@@ -16,6 +16,8 @@ const AI_TOOLS_LIBRARY_URL =
   "https://aigerimbatyrbayeva5-beep.github.io/AGISAIToolsLibrary/"
 const AI_POLICY_URL =
   "https://gardenschoolastana-my.sharepoint.com/personal/a_batyrbayeva_ags_edu_kz/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fa_batyrbayeva_ags_edu_kz%2FDocuments%2F%D0%98%D0%98%20%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0%20AGIS%2FAGIS_AI_Use_Policy%202026-27%2Epdf&parent=%2Fpersonal%2Fa_batyrbayeva_ags_edu_kz%2FDocuments%2F%D0%98%D0%98%20%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0%20AGIS&ga=1"
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`
 
 type IconName = "arrow" | "book" | "briefcase" | "check" | "chevron" | "copy" | "filter" | "globe" | "home" | "light" | "menu" | "reset" | "search" | "shield" | "spark" | "users" | "x"
 
@@ -122,7 +124,7 @@ function Brand() {
   return (
     <Link className="brand" to="/" aria-label="AGIS AI Teaching Lab home">
       <img
-        src="/assets/agis-logo.png"
+        src={asset("assets/agis-logo.png")}
         alt="Astana Garden International School floral logo"
       />
       <span>
@@ -309,22 +311,22 @@ const subjectMeta: Record<Subject, {
   description: string
 }> = {
   Science: {
-    image: "/assets/subject-science.jpg",
+    image: asset("assets/subject-science.jpg"),
     label: "Science",
     description: "Experiments, models, simulations, inquiry",
   },
   Mathematics: {
-    image: "/assets/subject-mathematics.jpg",
+    image: asset("assets/subject-mathematics.jpg"),
     label: "Mathematics",
     description: "Problem-solving, patterns, error analysis",
   },
   "Language Acquisition": {
-    image: "/assets/subject-languages.jpg",
+    image: asset("assets/subject-languages.jpg"),
     label: "Language Acquisition",
     description: "Conversation, writing, reading, role-play",
   },
   Humanities: {
-    image: "/assets/subject-humanities.jpg",
+    image: asset("assets/subject-humanities.jpg"),
     label: "Humanities",
     description: "Debates, historical inquiry, case studies",
   },
@@ -334,7 +336,7 @@ function BeeMascot() {
   return (
     <div className="bee-stage">
       <img
-        src="/assets/agis-bee-mascot.png"
+        src={asset("assets/agis-bee-mascot.png")}
         alt="Friendly 3D bee mascot in a green school hoodie holding a tablet"
       />
     </div>
@@ -379,7 +381,7 @@ function HomePage() {
           <BeeMascot />
           <div className="hero-photo">
             <img
-              src="/assets/agis-school.png"
+              src={asset("assets/agis-school.png")}
               alt="Original architectural rendering of Astana Garden International School"
             />
             <div className="photo-badge">
@@ -1480,7 +1482,7 @@ function NotFound() {
   )
 }
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     Component: Root,
