@@ -1,0 +1,11 @@
+{
+  "title": "AGIS AI Teaching Lab",
+  "description": "Provides Astana Garden teachers a searchable library of 20 AI-powered teaching practices with detailed guides, tools, and IB-aligned resources.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
